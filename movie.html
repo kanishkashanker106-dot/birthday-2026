@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little Movie ❤️</title>
+  <link rel="stylesheet" href="c/movie.css">
+</head>
+<body>
+
+  <div class="film-grain"></div>
+  <div class="vignette"></div>
+
+  <!-- Opening screen -->
+  <section id="intro" class="intro">
+    <div class="intro-content">
+      <p class="small-heading">A LITTLE FILM MADE WITH LOVE</p>
+      <h1>Our Little<br><span>Forever</span></h1>
+      <p class="intro-text">
+        Every picture holds a memory.<br>
+        Every memory holds a little piece of you.
+      </p>
+      <button id="startBtn">PLAY OUR STORY ♥</button>
+      <p class="intro-note">Best experienced with sound on</p>
+    </div>
+  </section>
+
+  <!-- Background music -->
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="music/tera-mera-rishta.mp4" type="audio/mpeg">
+  </audio>
+
+  <!-- Movie area -->
+  <main id="movie" class="movie hidden">
+
+    <div class="top-label">ROKAANSH FOREVER ♥</div>
+
+    <div class="scene">
+      <div class="scene-number" id="sceneNumber"></div>
+
+      <div class="photo-frame" id="photoFrame">
+        <img id="moviePhoto" src="" alt="Our memory">
+      </div>
+
+      <div class="caption-area">
+        <p class="caption-small">A MEMORY TO KEEP FOREVER</p>
+        <h2 id="caption"></h2>
+      </div>
+
+      <div class="progress-container">
+        <div id="progressBar"></div>
+      </div>
+    </div>
+
+    <div class="bottom-label">MADE WITH ALL MY LOVE ❤️</div>
+  </main>
+
+  <!-- Final video -->
+  <section id="videoScene" class="video-scene hidden">
+    <div class="video-heading">
+      <p>AND NOW, A LITTLE MESSAGE...</p>
+      <h1>Just for you ❤️</h1>
+    </div>
+
+    <video id="myVideo" playsinline controls preload="metadata">
+      <source src="videos/rohan-video-fixed.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+
+    <p class="video-caption">
+      Because some things are better said in my own voice.
+    </p>
+
+    <button id="finishBtn" class="finish-btn" style="display:block !important;">
+  CONTINUE ❤️
+</button>
+  </section>
+
+  <!-- Closing screen -->
+  <section id="ending" class="ending hidden">
+    <div class="ending-content">
+      <p class="small-heading">THE END OF THIS LITTLE FILM</p>
+      <h1>But never<br><span>our story.</span></h1>
+
+      <p class="ending-message">
+        Happy Birthday, my Sweetu! ❤️<br><br>
+        Out of all the people in this world,
+        I'm so glad our paths crossed.
+        Thank you for being my favourite memory,
+        my biggest smile and my special person.
+        <br><br>
+        Here's to all the memories we've made
+        and all the beautiful ones waiting for us.
+        <br><br>
+        Forever your biggest admirer,
+        your annoying girl. ❤️
+      </p>
+
+      <div class="heart">♥</div>
+      <p class="last-line">I LOVE YOU, ROHAN.</p>
+      <button onclick="window.location.href='final.html'">
+  ONE LAST SURPRISE ❤️
+</button>
+    </div>
+  </section>
+  
+  <script src="js/movie.js"></script>
+</body>
+</html>

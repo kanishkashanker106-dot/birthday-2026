@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Last Surprise ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background: linear-gradient(145deg, #f4e5d3, #f9dce1, #ead0bd);
+  color: #642b35;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 30px 16px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.screen.active {
+  display: flex;
+}
+
+h1 {
+  color: #9f263e;
+}
+
+p {
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.card {
+  background: #fff8ed;
+  border: 1px solid #e8c9b5;
+  border-radius: 22px;
+  padding: 26px 18px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px #762b3530;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 13px 25px;
+  margin: 9px;
+  font-size: 1rem;
+  background: #a52d45;
+  color: #fff8ed;
+  cursor: pointer;
+  box-shadow: 0 5px 15px #9d354455;
+}
+
+button:hover {
+  background: #c34e68;
+}
+
+input {
+  padding: 13px;
+  width: 240px;
+  max-width: 90%;
+  border: 1px solid #c98d88;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 12px;
+  background: #fffaf3;
+  color: #642b35;
+}
+
+.small {
+  font-size: .9rem;
+  color: #93616a;
+}
+
+.mail {
+  font-size: 90px;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+
+#yesArea {
+  position: relative;
+  min-height: 90px;
+  width: 100%;
+}
+
+#yesBtn {
+  position: relative;
+}
+
+#letterImage {
+  width: 100%;
+  max-width: 430px;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px #0002;
+}
+
+#song {
+  width: 100%;
+  max-width: 350px;
+  margin-top: 18px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 22px 14px;
+  }
+
+  #letterImage {
+    max-height: 58vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSCODE SCREEN -->
+<section id="lockScreen" class="screen active">
+  <div class="card">
+    <h1>One Last Surprise ❤️</h1>
+    <p>Before you open this little surprise...</p>
+    <p>Prove that you know me and yourself! 🤭</p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter the secret passcode"
+    >
+
+    <br>
+
+    <button onclick="checkPassword()">Unlock ❤️</button>
+
+    <p class="small">
+      Hint: my private passcode 😉
+    </p>
+
+    <p id="lockMessage"></p>
+  </div>
+</section>
+
+
+<!-- YES / NO SCREEN -->
+<section id="questionScreen" class="screen">
+  <div class="card">
+    <h1>Wait, Sweetu! 🥺</h1>
+
+    <p>
+      Do you promise to read everything with a smile
+      and listen to something special till the end?
+    </p>
+
+    <div id="yesArea">
+      <button id="yesBtn" onclick="yesClicked()">YES ❤️</button>
+    </div>
+
+    <button onclick="noClicked()">NO 🙄</button>
+
+    <p id="questionMessage"></p>
+  </div>
+</section>
+
+
+<!-- MAILBOX SCREEN -->
+<section id="mailScreen" class="screen">
+  <div class="card">
+    <h1>A Little Something For You 💌</h1>
+
+    <p>
+      I have written a few things that I couldn't
+      always say properly...
+    </p>
+
+    <p>Open your little mailbox, Sweetu ❤️</p>
+
+    <div class="mail" onclick="openLetters()">💌</div>
+
+    <p class="small">Tap the mailbox to open your letters</p>
+  </div>
+</section>
+
+
+<!-- LETTERS SCREEN -->
+<section id="lettersScreen" class="screen">
+  <div class="card">
+    <h1>Letters From My Heart ❤️</h1>
+
+    <p id="pageNumber">Letter 1 of 6</p>
+
+    <img
+      id="letterImage"
+      src="images/letters/letter-1.jpeg"
+      alt="Handwritten letter"
+    >
+
+    <div>
+      <button id="previousBtn" onclick="previousLetter()">
+        Previous
+      </button>
+
+      <button id="nextBtn" onclick="nextLetter()">
+        Next ❤️
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- SONG SCREEN -->
+<section id="songScreen" class="screen">
+  <div class="card">
+    <h1>Something From Me 🎵</h1>
+
+    <p>
+      I wanted to give you something a little different.
+      So this time, it's my voice...
+    </p>
+
+    <p>
+      This one is especially for you, my Sweetu. ❤️
+    </p>
+
+    <audio id="song" controls preload="metadata">
+      <source src="music/your-song.mp3.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+
+    <p class="small" id="audioMessage">
+      Play it whenever you're ready. ❤️
+    </p>
+
+    <button onclick="showFinal()">
+      Continue to your final surprise 💗
+    </button>
+  </div>
+</section>
+
+
+<!-- FINAL SCREEN -->
+<section id="finalScreen" class="screen">
+  <div class="card">
+    <h1>HAPPY BIRTHDAY, SWEETU! 🎂❤️</h1>
+
+    <p>
+      I hope this little surprise made you smile.
+    </p>
+
+    <p>
+      No matter how far we are, you will always have
+      a special place in my heart.
+    </p>
+
+    <h2>ROKAANSH FOREVER ❤️</h2>
+
+    <p>With all my love, always. 💌</p>
+
+    <p class="small">Your girl, always cheering for you. ❤️</p>
+  </div>
+</section>
+
+
+<script>
+const PASSCODE = "251103";
+
+const letters = [
+  "images/letters/letter-1.jpeg",
+  "images/letters/letter-2.jpeg",
+  "images/letters/letter-3.jpeg",
+  "images/letters/letter-4.jpeg",
+  "images/letters/letter-5.jpeg",
+  "images/letters/letter-6.jpeg"
+];
+
+let yesCount = 0;
+let currentLetter = 0;
+
+
+// SCREEN SWITCHING
+function showScreen(screenId) {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById(screenId).classList.add("active");
+}
+
+
+// PASSCODE
+function checkPassword() {
+  const entered = document.getElementById("password").value.trim();
+  const message = document.getElementById("lockMessage");
+
+  if (entered === PASSCODE) {
+    message.textContent = "You remembered! 🥹❤️";
+    setTimeout(() => {
+      showScreen("questionScreen");
+    }, 700);
+  } else {
+    message.textContent = "Wrong password! Try again, Sweetu 🤭";
+  }
+}
+
+
+// ENTER KEY SUPPORT
+document.getElementById("password").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    checkPassword();
+  }
+});
+
+
+// YES BUTTON
+function yesClicked() {
+  yesCount++;
+
+  const message = document.getElementById("questionMessage");
+
+  if (yesCount < 5) {
+    message.textContent = "Are you sure? Click YES again! 🤭❤️";
+
+    const button = document.getElementById("yesBtn");
+    const area = document.getElementById("yesArea");
+
+    const maxX = Math.max(0, area.clientWidth - button.offsetWidth - 20);
+    const randomX = Math.random() * maxX;
+
+    button.style.position = "absolute";
+    button.style.left = randomX + "px";
+    button.style.top = "5px";
+  } else {
+    message.textContent = "I knew you would say YES! 🥹❤️";
+
+    setTimeout(() => {
+      showScreen("mailScreen");
+    }, 900);
+  }
+}
+
+
+// NO BUTTON
+function noClicked() {
+  document.getElementById("questionMessage").textContent =
+    "Excuse me?! No option is not available here! 😂❤️";
+}
+
+
+// OPEN MAILBOX
+function openLetters() {
+  currentLetter = 0;
+  showLetter();
+  showScreen("lettersScreen");
+}
+
+
+// SHOW LETTER
+function showLetter() {
+  const image = document.getElementById("letterImage");
+
+  image.src = letters[currentLetter];
+
+  document.getElementById("pageNumber").textContent =
+    "Letter " + (currentLetter + 1) + " of " + letters.length;
+
+  document.getElementById("previousBtn").style.display =
+    currentLetter === 0 ? "none" : "inline-block";
+
+  document.getElementById("nextBtn").textContent =
+    currentLetter === letters.length - 1
+      ? "Listen to something special 🎵"
+      : "Next ❤️";
+}
+
+
+// NEXT LETTER
+function nextLetter() {
+  if (currentLetter < letters.length - 1) {
+    currentLetter++;
+    showLetter();
+  } else {
+    showScreen("songScreen");
+  }
+}
+
+
+// PREVIOUS LETTER
+function previousLetter() {
+  if (currentLetter > 0) {
+    currentLetter--;
+    showLetter();
+  }
+}
+
+
+// AUDIO ERROR CHECK
+const song = document.getElementById("song");
+console.log(song);
+
+song.addEventListener("error", function() {
+  document.getElementById("audioMessage").textContent =
+    "Oops! The song could not load. Please check the music folder and filename.";
+});
+
+song.addEventListener("canplay", function() {
+  document.getElementById("audioMessage").textContent =
+    "It's not good, but I tried... sorry 😭❤️ Just listen with your heart, okay?";
+});
+
+
+// FINAL SCREEN
+function showFinal() {
+  song.pause();
+  showScreen("finalScreen");
+}
+
+
+// FLOATING HEARTS
+function createHeart() {
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+  heart.textContent = Math.random() > 0.5 ? "❤️" : "💕";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 700);
+
+</script>
+
+</body>
+</html>

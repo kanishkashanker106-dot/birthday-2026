@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little Gallery ❤️</title>
+  <link rel="stylesheet" href="c/gallery.css">
+</head>
+<body>
+
+  <header>
+    <p class="tag">A LITTLE COLLECTION OF MEMORIES ♡</p>
+    <h1>Our Picture Perfect World</h1>
+    <p class="subtitle">Every picture has a little story of you...</p>
+  </header>
+
+  <nav>
+    <button onclick="showGallery('all')">All Memories</button>
+    <button onclick="showGallery('rohan')">My Sweetu</button>
+    <button onclick="showGallery('us')">Us Together ❤️</button>
+    <button onclick="showGallery('wife')">Tumhari Wife 💗</button>
+    <button onclick="showGallery('videocall')">Video Calls 📱</button>
+  </nav>
+
+  <main id="gallery" class="gallery"></main>
+
+  <div id="lightbox" class="lightbox" onclick="closePhoto()">
+    <button class="close">×</button>
+    <img id="largePhoto" src="" alt="Memory">
+  </div>
+
+  <footer>
+    <p>Rookansh Forever ♾️</p>
+    <a href="scrapbook.html">Continue to our scrapbook →</a>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>

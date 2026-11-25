@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open When Letters ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg,#ff5f9e,#ff8fb8,#f4d2df);
+    font-family: 'DM Sans', sans-serif;
+    color: #492b3a;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 18px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    font-size: 36px;
+    text-shadow: 2px 3px 8px #a52d58;
+}
+
+.subtitle {
+    color: white;
+    line-height: 1.8;
+}
+
+.letters {
+    max-width: 850px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    gap: 20px;
+}
+
+.envelope {
+    background: #ffffffdf;
+    padding: 25px 15px;
+    border-radius: 22px;
+    box-shadow: 0 7px 20px #a52d5844;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.envelope:hover {
+    transform: translateY(-7px) scale(1.02);
+}
+
+.emoji {
+    font-size: 48px;
+}
+
+.envelope h3 {
+    color: #d94d83;
+}
+
+button {
+    background: #ff477e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 24px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px;
+}
+
+button:hover {
+    background: #e93670;
+}
+
+.letter-box {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #492b3acc;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.letter-content {
+    background: #fff5f8;
+    border-radius: 25px;
+    padding: 30px 22px;
+    max-width: 450px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px #492b3a55;
+    animation: appear .35s ease;
+}
+
+.letter-content h2 {
+    color: #e84c86;
+    font-family: 'Pacifico', cursive;
+}
+
+.letter-content p {
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    color: #e60045;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .9;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {transform: scale(.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart" style="left:10%;animation-duration:9s;font-size:25px">♥</div>
+<div class="heart" style="left:30%;animation-duration:12s;font-size:20px">♥</div>
+<div class="heart" style="left:55%;animation-duration:8s;font-size:30px">♥</div>
+<div class="heart" style="left:80%;animation-duration:11s;font-size:24px">♥</div>
+
+<div class="container">
+
+<h1>Open When... 💌</h1>
+
+<p class="subtitle">
+Six little letters, six little pieces of my heart.<br>
+Choose one whenever you need me, Sweetu. ❤️
+</p>
+
+<div class="letters" id="letters"></div>
+
+<button onclick="location.href='movie.html'">
+-> Go to Movie❤️
+</button>
+
+</div>
+
+<div class="letter-box" id="letterBox">
+    <div class="letter-content">
+        <h2 id="letterTitle"></h2>
+        <p id="letterText"></p>
+        <button onclick="closeLetter()">Close ❤️</button>
+    </div>
+</div>
+
+<script>
+
+const letters = [
+{
+emoji: "🥺",
+title: "Open when you miss me",
+text: `Sweetu, even when we are miles apart,
+you are always close to my heart.
+
+I wish I could be there with you right now.
+Until then, remember that someone is
+always thinking of you. ❤️`
+},
+{
+emoji: "🫂",
+title: "Open when you're feeling low",
+text: `Hey my favourite person,
+
+Take a little break.
+You don't have to figure everything out at once.
+
+I believe in you and I am always cheering for you.
+You are doing better than you think. 💗`
+},
+{
+emoji: "😂",
+title: "Open when you need a laugh",
+text: `Remember that you are stuck with
+the world's most dramatic person! 😂
+
+And yes, you have to tolerate
+all my silly talks forever.
+
+Sending you one giant smile!`
+},
+{
+emoji: "❤️",
+title: "Open when you need love",
+text: `Just a little reminder that you are special to me.
+
+I love our little conversations,
+our silly moments and everything
+that makes our story ours.
+
+You are my favourite chapter. ❤️`
+},
+{
+emoji: "🌙",
+title: "Open when you can't sleep",
+text: `Put everything aside for a while.
+Relax and give yourself some rest.
+
+Tomorrow is a new day.
+
+Sending you the sweetest goodnight wishes.
+Sleep well, Sweetu. 🌙`
+},
+{
+emoji: "🎂",
+title: "Open on your birthday",
+text: `Happy Birthday, my Sweetu! ❤️
+
+I hope this new year brings you happiness,
+success and countless reasons to smile.
+
+I wish I could be there to celebrate with you.
+
+You deserve all the beautiful things in life. ❤️`
+}
+];
+
+const lettersContainer = document.getElementById("letters");
+
+letters.forEach((letter,index) => {
+
+    const card = document.createElement("div");
+    card.className = "envelope";
+
+    card.innerHTML = `
+        <div class="emoji">${letter.emoji}</div>
+        <h3>${letter.title}</h3>
+        <p>Tap to open 💌</p>
+    `;
+
+    card.onclick = () => openLetter(index);
+    lettersContainer.appendChild(card);
+
+});
+
+function openLetter(index) {
+
+    document.getElementById("letterTitle").textContent =
+        letters[index].title;
+
+    document.getElementById("letterText").textContent =
+        letters[index].text;
+
+    document.getElementById("letterBox").style.display = "flex";
+
+}
+
+function closeLetter() {
+    document.getElementById("letterBox").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>

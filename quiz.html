@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Rohan Personality Test 😂</title>
+
+    <link rel="stylesheet" href="c/quiz.css">
+    <script src="js/quiz.js" defer></script>
+</head>
+
+<body>
+
+    <main class="quiz-container">
+
+        <p class="tagline">SPECIAL BIRTHDAY EDITION 🎂</p>
+
+        <h1>THE ROHAN<br>PERSONALITY TEST 😂</h1>
+
+        <p class="subtitle">
+            Let's see how well you know yourself,
+            Mr. Rohan!
+        </p>
+
+        <div class="quiz-card" id="quizCard">
+
+            <div class="progress">
+                <span id="progressText">Question 1 of 7</span>
+                <div class="progress-track">
+                    <div id="progressBar"></div>
+                </div>
+            </div>
+
+            <h2 id="question">Loading question...</h2>
+
+            <div id="answers" class="answers"></div>
+
+            <p id="feedback"></p>
+
+            <button id="nextButton" class="next-button" hidden>
+                Next Question →
+            </button>
+
+        </div>
+
+        <div id="result" hidden>
+    <div class="result-heading">
+        <h2>Quiz Completed! 🎉</h2>
+        <p id="resultMessage"></p>
+    </div>
+
+    <div id="certificate" class="certificate" hidden>
+        <div class="certificate-stars">✦ ✧ ✦ ✧ ✦</div>
+
+        <p class="certificate-small">A VERY SPECIAL BIRTHDAY AWARD</p>
+
+        <h1>🏆 CERTIFIED ORIGINAL PIECE 🏆</h1>
+
+        <p class="certificate-subtitle">This certificate is proudly awarded to</p>
+
+        <h2 class="certificate-name">ROHAN ❤️</h2>
+
+        <p class="certificate-description">
+            For being the one and only
+        </p>
+
+        <h2 class="certificate-title">MR. SLEEPY PHILOSOPHER 😂</h2>
+
+        <p class="certificate-description">
+            Dramatic, sleepy, funny, family-loving and completely one of a kind!
+        </p>
+
+        <div class="certificate-score">
+            Quiz Score: <span id="certificateScore">0/7</span>
+        </div>
+
+        <p class="certificate-footer">
+            Awarded with love, on your birthday ❤️
+        </p>
+
+        <p class="certificate-date" id="certificateDate"></p>
+
+        <div class="certificate-stars">♾️ ROOKANSH FOREVER ♾️</div>
+
+        <button onclick="saveCertificate()" class="save-certificate">
+            Save My Certificate 📸
+        </button>
+    </div>
+
+    <button onclick="restartQuiz()" class="restart-button">
+        Play Again 🔄
+    </button>
+
+    <a href="gallery.html" class="gallery-link">
+        Continue to Our Photo Gallery ❤️
+    </a>
+</div>
+        <a href="gallery.html" class="gallery-link">
+            Enough testing! Show me my photos 📸 →
+        </a>
+
+        <p class="footer">ROOKANSH FOREVER ♾️</p>
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
